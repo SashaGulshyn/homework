@@ -7,13 +7,13 @@ public class Point1_1 {
         Scanner console = new Scanner(System.in);
         String strFromUser = console.nextLine();
         long user = Long.parseLong(strFromUser);
+        if (user >= 21) {
+            System.out.println("В результате переполнения мы получили отрицательное число!");}
         long result = 1;
         for (long i = 1; i<=user; i++){
             result = result*i;
             System.out.print(i+ "*");
         }
         System.out.println("="+ result);
-        if (user >= 21) {
-        System.out.println("В результате переполнения мы получили отрицательное число!");}
     }
 }
