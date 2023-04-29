@@ -8,7 +8,7 @@ public class Point1_1 {
         String strFromUser = console.nextLine();
         long user = Long.parseLong(strFromUser);
         if (user >= 21) {
-            System.out.println("В результате переполнения мы получили отрицательное число!");}
+            System.out.println("Значение получено в результате переполнения и может быть отличным от ожидаемого! Задайте положительное число до 20ти включительно.");}
         long result = 1;
         for (long i = 1; i<=user; i++){
             result = result*i;
