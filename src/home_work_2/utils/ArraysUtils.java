@@ -20,4 +20,20 @@ public class ArraysUtils {
         }
         return arraySize;
     }
+
+    /**
+     * Метод для наполнения массива размером 5 рандомно сгенерированными элементами
+     * @param size - заданный изначально размер массива (5)
+     * @param maxValueExclusion - максимальное число, в рамках которого работает рандом
+     * @return - возвращает методу arrayRandom сформированный рандомными элементами массив
+     */
+    public static int[] arrayRandom(int size, int maxValueExclusion) {
+        int[] arrayRandom = new int[size];
+        for (int i = 0; i < size; i++) {
+            Random rand = new Random();
+            int value = rand.nextInt(maxValueExclusion);
+            arrayRandom[i] = value;
+        }
+        return arrayRandom;
+    }
 }
