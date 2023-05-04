@@ -10,6 +10,9 @@ public class Point2_4 {
         less(container);
     }
 
+    /**
+     * Метод для нахождения суммы чётных положительных элементов массива
+     */
     public static void natural (int[] array) {
         int[] container = array;
         int s = 0;
@@ -20,6 +23,10 @@ public class Point2_4 {
         }
         System.out.println("Сумма четных положительных элементов массива - " + s);
     }
+
+    /**
+     * Метод для нахождения позиции элемента с максимальным числом в массиве
+     */
     public static void index (int[] array){
         int[] container = array;
         int m = 0;
@@ -31,6 +38,9 @@ public class Point2_4 {
         System.out.println("Элемент № " + m + " хранит в себе " + container[m] + " - максимальное целое число в массиве");
     }
 
+    /**
+     * Метод для подсчёта среднего арифметического и элементов массива, которые меньше его
+     */
     public static void less (int[] array) {
         int[] container = array;
         double avrg = 0;
