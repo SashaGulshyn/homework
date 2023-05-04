@@ -13,7 +13,6 @@ public class ArraysIteration {
 
     /**
      * Метод all для вывода всех элементов массива с помощью циклов for, foreach, do...while, while
-     *
      * @param array забирает метод из ArraysUtils.arrayFromConsole() для наполнения массива
      */
     public static void all(int[] array) {
@@ -50,7 +49,6 @@ public class ArraysIteration {
 
     /**
      * Метод проверяет размер массива. Меньше двух элементов - пропускает подсчёт циклами. Более двух - применяет for, do...while,while. Foreach обыграть не вышло =/
-     *
      * @param array как и ранее забирает метод из ArraysUtils.arrayFromConsole() для наполнения массива
      */
     public static void secondElement(int[] array) {
