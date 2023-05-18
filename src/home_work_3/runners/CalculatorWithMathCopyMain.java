@@ -1,6 +1,6 @@
 package src.home_work_3.runners;
 
-import src.home_work_3.Calcs.simple.CalculatorWithMathCopy;
+import src.home_work_3.calcs.simple.CalculatorWithMathCopy;
 
 public class CalculatorWithMathCopyMain {
     public static void main(String[] args) {

@@ -1,40 +1,54 @@
-package src.home_work_3.Calcs.simple;
+package src.home_work_3.calcs.additional;
 
-public class CalculatorWithMathExtends extends CalculatorWithOperator{
-    double a = 28.0;
-    double b = 5.0;
+import src.home_work_3.calcs.simple.CalculatorWithMathExtends;
+
+public class CalculatorWithCounterAutoSuper extends CalculatorWithMathExtends {
+
+    private long countOfOperation = 0;
+
+    public long getCountOperation() {
+        return countOfOperation;
+    }
+
+    @Override
     public double addition(double resultOfDivision, double resultOfMultiplication, double e) {
+        countOfOperation++;
         return super.addition(resultOfDivision, resultOfMultiplication, e);
     }
 
+    @Override
     public double division(double a, double b) {
+        countOfOperation++;
         return super.division(a, b);
     }
 
+    @Override
     public double multiplication(double c, double d) {
+        countOfOperation++;
         return super.multiplication(c, d);
     }
 
+    @Override
     public double substraction(double a, double b) {
+        countOfOperation++;
         return super.substraction(a, b);
     }
 
     @Override
     public double exponentiation(double resultOfAddition) {
-        double f = 2.0;
-        double overExponentiation = Math.pow(resultOfAddition,f);
-        return overExponentiation;
+        countOfOperation++;
+        return super.exponentiation(resultOfAddition);
     }
 
     @Override
     public double module(double d, double g) {
-        double overModule = Math.abs(d);
-        return d;
+        countOfOperation++;
+        return super.module(d, g);
     }
 
     @Override
     public double sqrt(double resultOfExponentiation) {
-        double overSqrt = Math.sqrt(resultOfExponentiation);
-        return overSqrt;
+        countOfOperation++;
+        return super.sqrt(resultOfExponentiation);
     }
 }

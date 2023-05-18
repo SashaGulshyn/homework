@@ -1,24 +1,7 @@
-package src.home_work_3.Calcs.simple;
+package src.home_work_3.calcs.simple;
 
 
 public class CalculatorWithOperator {
-    public static void main(String[] args) {
-        double a = 28;
-        double b = 5;
-        double c = 7;
-        double d = 15;
-        double e = 4.1;
-        double f = 2.0;
-        double g = 0.0;
-        CalculatorWithOperator calc = new CalculatorWithOperator();
-        double resultOfSubstraction = calc.substraction(a, b);
-        double resultOfMultiplication = calc.multiplication(c, d);
-        double resultOfDivision = calc.division(a, b);
-        double resultOfAddition = calc.addition(resultOfDivision, resultOfMultiplication, e);
-        double resultOfExponentiation = calc.exponentiation(resultOfAddition);
-        double resultOfSqrt = calc.sqrt(resultOfExponentiation);
-        double resultOfModule = calc.module(d, g);
-    }
 
     /**
      * Метод сложения

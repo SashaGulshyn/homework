@@ -1,4 +1,4 @@
-package src.home_work_3.Calcs.simple;
+package src.home_work_3.calcs.simple;
 
 /**
  * Класс ниже унаследовал 4 базовых метода из CalculatorWithOperator (шёл сверху вниз по заданиям из домашней работы,
@@ -6,25 +6,35 @@ package src.home_work_3.Calcs.simple;
  * Когда спустился ниже до задания 4 осознал ошибку - там имеется тот самый класс, который должен наследовать полностью.
  */
 
-public class CalculatorWithMathCopy extends CalculatorWithOperator {
-    @Override
+public class CalculatorWithMathCopy {
+
     public double addition(double resultOfDivision, double resultOfMultiplication, double e) {
-        return super.addition(resultOfDivision, resultOfMultiplication, e);
+        double result = resultOfDivision + resultOfMultiplication + e;
+        return result;
     }
 
-    @Override
-    public double division(double a, double b) {
-        return super.division(a, b);
-    }
-
-    @Override
-    public double multiplication(double c, double d) {
-        return super.multiplication(c, d);
-    }
-
-    @Override
+    /**
+     * Метод вычитания
+     */
     public double substraction(double a, double b) {
-        return super.substraction(a, b);
+        double result = a - b;
+        return result;
+    }
+
+    /**
+     * Метод умножения
+     */
+    public double multiplication(double c, double d) {
+        double result = c * d;
+        return result;
+    }
+
+    /**
+     * Метод деления
+     */
+    public double division(double a, double b) {
+        double result = a / b;
+        return result;
     }
 
     public double exponentiationMath (double resultOfExponentiation,double f){
