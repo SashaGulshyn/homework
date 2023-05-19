@@ -22,7 +22,7 @@ public class CalculatorWithCounterDelegateChoiceAgregationMain {
         double division = calculatorWithOperator.divisionCalculatorWithOperator(28.0, 5.0);
         double multiplication = calculatorWithOperator.multiplicationCalculatorWithOperator(15.0, 7.0);
         double addition = calculatorWithOperator.additionCalculatorWithOperator(division, multiplication, e);
-        double result = calculatorWithOperator.exponentiationCalculatorWithOperator(addition);
+        double result = calculatorWithOperator.exponentiationCalculatorWithOperator(addition, f);
         System.out.println("4.1 + 15 * 7 + (28 / 5) ^ 2 = " + result);
         System.out.println("Количество использований калькулятора " + " = " + calculatorWithOperator.getCountOperationWithOperator());
 
@@ -37,7 +37,7 @@ public class CalculatorWithCounterDelegateChoiceAgregationMain {
         division = calculatorWithMathExtends.divisionCalculatorWithMathExtends(28.0, 5.0);
         multiplication = calculatorWithMathExtends.multiplicationCalculatorWithMathExtends(15.0, 7.0);
         addition = calculatorWithMathExtends.additionCalculatorWithMathExtends(division, multiplication, e);
-        result = calculatorWithMathExtends.exponentiationMathCalculatorWithMathExtends(addition);
+        result = calculatorWithMathExtends.exponentiationMathCalculatorWithMathExtends(addition, f);
         System.out.println("4.1 + 15 * 7 + (28 / 5) ^ 2 = " + result);
         System.out.println("Количество использований калькулятора " + " = " + calculatorWithMathExtends.getCountOperationWithOperator());
     }

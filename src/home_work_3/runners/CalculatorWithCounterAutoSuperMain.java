@@ -14,7 +14,7 @@ public class CalculatorWithCounterAutoSuperMain {
 
         double addition = calcWithCounter.addition(division, multiplication, e);
 
-        double result = calcWithCounter.exponentiation(addition);
+        double result = calcWithCounter.exponentiation(addition, f);
 
         System.out.println("4.1 + 15 * 7 + (28 / 5) ^ 2 = " + result);
         System.out.println("Количество проведённых операций " + " = " + calcWithCounter.getCountOperation());

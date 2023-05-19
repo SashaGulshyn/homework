@@ -1,51 +1,52 @@
 package src.home_work_3.calcs.additional;
 
-import src.home_work_3.calcs.simple.CalculatorWithMathCopy;
+import src.home_work_3.api.ICalculator;
 
-public class CalculatorWithCounterAutoAgregation {
-    private CalculatorWithMathCopy calculator;
-    private long counter = 0;
+public class CalculatorWithCounterAutoAgregationInterface {
+    private ICalculator calculator;
+    private long count = 0;
 
-    public CalculatorWithCounterAutoAgregation(CalculatorWithMathCopy calculator) {
+    public CalculatorWithCounterAutoAgregationInterface(ICalculator calculator) {
         this.calculator = calculator;
     }
 
     public double addition(double resultOfDivision, double resultOfMultiplication, double e) {
-        counter++;
+        count++;
         return calculator.addition(resultOfDivision, resultOfMultiplication, e);
     }
 
     public double substraction(double a, double b) {
-        counter++;
+        count++;
         return calculator.substraction(a, b);
     }
 
     public double multiplication(double c, double d) {
-        counter++;
+        count++;
         return calculator.multiplication(c, d);
     }
 
     public double division(double a, double b) {
-        counter++;
+        count++;
         return calculator.division(a, b);
     }
 
-    public double exponentiationMath(double resultOfExponentiation, double f) {
-        counter++;
-        return calculator.exponentiation(resultOfExponentiation, f);
+    public double exponentiation(double resultOfAddition, double f) {
+        count++;
+        return calculator.exponentiation(resultOfAddition, f);
     }
 
-    public double absMath(double d) {
-        counter++;
+    public double module(double d) {
+        count++;
         return calculator.module(d);
     }
 
-    public double sqrtMath(double resultOfExponentiation) {
-        counter++;
+    public double sqrt(double resultOfExponentiation) {
+        count++;
         return calculator.sqrt(resultOfExponentiation);
     }
 
     public long getCountOperation() {
-        return counter;
+        return count;
     }
+
 }

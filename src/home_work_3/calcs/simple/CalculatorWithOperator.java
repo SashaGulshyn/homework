@@ -1,7 +1,8 @@
 package src.home_work_3.calcs.simple;
 
+import src.home_work_3.api.ICalculator;
 
-public class CalculatorWithOperator {
+public class CalculatorWithOperator implements ICalculator {
 
     /**
      * Метод сложения
@@ -38,7 +39,7 @@ public class CalculatorWithOperator {
     /**
      * Возведение в степень
      */
-    public double exponentiation(double resultOfAddition) {
+    public double exponentiation(double resultOfAddition, double f) {
         double result = resultOfAddition * resultOfAddition;
         return result;
     }
@@ -46,8 +47,8 @@ public class CalculatorWithOperator {
     /**
      * Модуль числа
      */
-    public double module(double d, double g) {
-        double result = g + d;
+    public double module(double d) {
+        double result = 0 + d;
         return result;
     }
 

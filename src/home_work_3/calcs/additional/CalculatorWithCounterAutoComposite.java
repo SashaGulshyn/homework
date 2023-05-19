@@ -29,17 +29,17 @@ public class CalculatorWithCounterAutoComposite {
 
     public double exponentiationMath(double resultOfExponentiation, double f) {
         countForComposite++;
-        return calc.exponentiationMath(resultOfExponentiation, f);
+        return calc.exponentiation(resultOfExponentiation, f);
     }
 
     public double absMath(double d) {
         countForComposite++;
-        return calc.absMath(d);
+        return calc.module(d);
     }
 
     public double sqrtMath(double resultOfExponentiation) {
         countForComposite++;
-        return calc.sqrtMath(resultOfExponentiation);
+        return calc.sqrt(resultOfExponentiation);
     }
 
     public long getCountOperation() {

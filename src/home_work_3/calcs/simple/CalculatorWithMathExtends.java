@@ -1,15 +1,16 @@
 package src.home_work_3.calcs.simple;
 
-public class CalculatorWithMathExtends extends CalculatorWithOperator {
+import src.home_work_3.api.ICalculator;
+
+public class CalculatorWithMathExtends extends CalculatorWithOperator implements ICalculator {
     @Override
-    public double exponentiation(double resultOfAddition) {
-        double f = 2.0;
+    public double exponentiation(double resultOfAddition, double f) {
         double overExponentiation = Math.pow(resultOfAddition, f);
         return overExponentiation;
     }
 
     @Override
-    public double module(double d, double g) {
+    public double module(double d) {
         double overModule = Math.abs(d);
         return d;
     }

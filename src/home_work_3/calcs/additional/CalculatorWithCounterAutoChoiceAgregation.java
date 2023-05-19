@@ -43,14 +43,14 @@ public class CalculatorWithCounterAutoChoiceAgregation {
         return calculatorWithOperator.division(a, b);
     }
 
-    public double exponentiationCalculatorWithOperator(double resultOfExponentiation) {
+    public double exponentiationCalculatorWithOperator(double resultOfExponentiation, double f) {
         count++;
-        return calculatorWithOperator.exponentiation(resultOfExponentiation);
+        return calculatorWithOperator.exponentiation(resultOfExponentiation, f);
     }
 
-    public double moduleCalculatorWithOperator(double d, double g) {
+    public double moduleCalculatorWithOperator(double d) {
         count++;
-        return calculatorWithOperator.module(d, g);
+        return calculatorWithOperator.module(d);
     }
 
     public double sqrtCalculatorWithOperator(double resultOfExponentiation) {
@@ -84,17 +84,17 @@ public class CalculatorWithCounterAutoChoiceAgregation {
 
     public double exponentiationMathCalculatorWithMathCopy(double resultOfExponentiation, double f) {
         count++;
-        return calculatorWithMathCopy.exponentiationMath(resultOfExponentiation, f);
+        return calculatorWithMathCopy.exponentiation(resultOfExponentiation, f);
     }
 
     public double absMathCalculatorWithMathCopy(double d) {
         count++;
-        return calculatorWithMathCopy.absMath(d);
+        return calculatorWithMathCopy.module(d);
     }
 
     public double sqrtMathCalculatorWithMathCopy(double resultOfExponentiation) {
         count++;
-        return calculatorWithMathCopy.sqrtMath(resultOfExponentiation);
+        return calculatorWithMathCopy.sqrt(resultOfExponentiation);
     }
 
     public long getCountOperationWithMathCopy() {
@@ -121,14 +121,14 @@ public class CalculatorWithCounterAutoChoiceAgregation {
         return calculatorWithMathExtends.division(a, b);
     }
 
-    public double exponentiationMathCalculatorWithMathExtends(double resultOfAddition) {
+    public double exponentiationMathCalculatorWithMathExtends(double resultOfAddition, double f) {
         count++;
-        return calculatorWithMathExtends.exponentiation(resultOfAddition);
+        return calculatorWithMathExtends.exponentiation(resultOfAddition, f);
     }
 
-    public double moduleMathCalculatorWithMathExtends(double d, double g) {
+    public double moduleMathCalculatorWithMathExtends(double d) {
         count++;
-        return calculatorWithMathExtends.module(d, g);
+        return calculatorWithMathExtends.module(d);
     }
 
     public double sqrtMathCalculatorWithMathExtends(double resultOfExponentiation) {

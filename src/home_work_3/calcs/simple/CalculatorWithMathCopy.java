@@ -1,12 +1,8 @@
 package src.home_work_3.calcs.simple;
 
-/**
- * Класс ниже унаследовал 4 базовых метода из CalculatorWithOperator (шёл сверху вниз по заданиям из домашней работы,
- * и решил, что "скопировать базовые математические операции из CalculatorWithOperator" означает унаследовать, а не просто скопировать.
- * Когда спустился ниже до задания 4 осознал ошибку - там имеется тот самый класс, который должен наследовать полностью.
- */
+import src.home_work_3.api.ICalculator;
 
-public class CalculatorWithMathCopy {
+public class CalculatorWithMathCopy implements ICalculator {
 
     public double addition(double resultOfDivision, double resultOfMultiplication, double e) {
         double result = resultOfDivision + resultOfMultiplication + e;
@@ -37,17 +33,17 @@ public class CalculatorWithMathCopy {
         return result;
     }
 
-    public double exponentiationMath (double resultOfExponentiation,double f){
-        double expMath = Math.pow(resultOfExponentiation,f);
+    public double exponentiation(double resultOfExponentiation, double f) {
+        double expMath = Math.pow(resultOfExponentiation, f);
         return expMath;
     }
 
-    public double absMath(double d) {
+    public double module(double d) {
         double resAbs = Math.abs(d);
         return resAbs;
     }
 
-    public double sqrtMath(double resultOfExponentiation) {
+    public double sqrt(double resultOfExponentiation) {
         double resSqrt = Math.sqrt(resultOfExponentiation);
         return resSqrt;
     }

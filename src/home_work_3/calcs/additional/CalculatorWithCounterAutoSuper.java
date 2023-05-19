@@ -35,15 +35,15 @@ public class CalculatorWithCounterAutoSuper extends CalculatorWithMathExtends {
     }
 
     @Override
-    public double exponentiation(double resultOfAddition) {
+    public double exponentiation(double resultOfAddition, double f) {
         countOfOperation++;
-        return super.exponentiation(resultOfAddition);
+        return super.exponentiation(resultOfAddition, f);
     }
 
     @Override
-    public double module(double d, double g) {
+    public double module(double d) {
         countOfOperation++;
-        return super.module(d, g);
+        return super.module(d);
     }
 
     @Override

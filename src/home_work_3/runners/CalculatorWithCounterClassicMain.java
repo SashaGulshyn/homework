@@ -17,7 +17,7 @@ public class CalculatorWithCounterClassicMain {
         double addition = counterCalc.addition(division, multiplication, e);
         counterCalc.incrementCountOperation();
 
-        double result = counterCalc.exponentiation(addition);
+        double result = counterCalc.exponentiation(addition, f);
         counterCalc.incrementCountOperation();
 
         System.out.println("4.1 + 15 * 7 + (28 / 5) ^ 2 = " + result);
