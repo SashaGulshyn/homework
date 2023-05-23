@@ -1,17 +1,21 @@
 package src.home_work_1;
-import java.util.Scanner;
-import java.util.Objects;
 
-public class Point6_1 {
-    public static void main(String[] args) {
-       Scanner sc = new Scanner(System.in);
-       System.out.print("Введите имя");
-       Object a = (sc.findInLine("Вася"));
-       Object b = "Вася";
-        if (Objects.equals(a,b)) {
-            System.out.println("Привет!\nЯ тебя так долго ждал ");
-        }else{
-            System.out.println("");
+import src.home_work_1.api.ICommunicationPrinter;
+
+
+public class Point6_1 implements ICommunicationPrinter {
+    @Override
+    public String welcome(String name) {
+        if (name.isBlank() || !name.chars().anyMatch(Character::isAlphabetic)) {
+            return "Похоже что это не имя";
+        }
+        if (name.equals("Вася")) {
+            return "Привет!\nЯ тебя так долго ждал ";
+        }
+        if (name.equals("Анастасия")) {
+            return "Я тебя так долго ждал";
+        } else {
+            return "Добрый день, а вы кто?";
         }
     }
 }

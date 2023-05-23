@@ -1,32 +1,32 @@
 package src.home_work_2.loops;
 
 import java.util.Scanner;
+import src.home_work_2.loops.Point1_1Main;
 
 public class Point1_2 {
-    public static void main(String[] args) {
-        System.out.println("Введите целое число, цифры из которого будут перемножены между собой");
-        Scanner console = new Scanner(System.in);
-        if (!console.hasNextDouble()) {
-            System.out.println("Введено не число");
-        } else {
-            if (console.hasNextDouble() && console.hasNextLong()) {
-                long longFromUser = console.nextLong();
-                long result = 1;
-                long secondSymbol = 1;
-                for (int i = String.valueOf(longFromUser).length(); i > 0; i--) {
-                    secondSymbol = longFromUser % 10;
-                    result = result * secondSymbol;
-                    if (longFromUser / 10 != 0) {
-                        System.out.print(secondSymbol + "*");
-                    } else {
-                        System.out.print(secondSymbol + "=");
-                    }
-                    longFromUser = longFromUser / 10;
+    static public String multiplayer(String consoleUser) {
+
+        String notNumber = "Введено не число";
+        if (consoleUser.matches("[a-zA-Z]+")) {
+            return notNumber;
+        }else if (consoleUser.matches("[0-9]+")) {
+            long longFromUser = Long.parseLong(consoleUser);
+            long result = 1;
+            long secondSymbol = 1;
+            for (int i = String.valueOf(longFromUser).length(); i > 0; i--) {
+                secondSymbol = longFromUser % 10;
+                result = result * secondSymbol;
+                if (longFromUser / 10 != 0) {
+                    System.out.print(secondSymbol + "*");
+                } else {
+                    System.out.print(secondSymbol + "=");
                 }
-                System.out.print(result);
-            } else {
-                System.out.println("Введено не целое число");
+                longFromUser = longFromUser / 10;
             }
+            return String.valueOf(result);
+        } else {
+            String thisIsNotAWholeNumber = "Введено не целое число";
+            return thisIsNotAWholeNumber;
         }
     }
 }

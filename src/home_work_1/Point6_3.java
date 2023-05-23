@@ -1,21 +1,20 @@
 package src.home_work_1;
-import java.util.Scanner;
 
-public class Point6_3 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String name;
-        System.out.print("Введите имя");
-        name = sc.nextLine();
-        switch (name){
+import src.home_work_1.api.ICommunicationPrinter;
+
+public class Point6_3 implements ICommunicationPrinter {
+    public String welcome(String name) {
+        if (name.isBlank() || !name.chars().anyMatch(Character::isAlphabetic)) {
+            return "Похоже что это не имя";
+        }
+
+        switch (name) {
             case "Вася":
-                System.out.println("Привет! Я тебя так долго ждал");
-                break;
+                return "Привет!\nЯ тебя так долго ждал";
             case "Анастасия":
-                System.out.println("Я тебя так долго ждал");
-                break;
+                return "Я тебя так долго ждал";
             default:
-                System.out.println("Добрый день, а вы кто?");
+                return "Добрый день, а вы кто?";
         }
     }
 }

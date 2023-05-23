@@ -11,16 +11,10 @@ public class Point1_5 {
         long max = user % 10;
         long counter = user / 10;
         do {
-            if (counter % 10 > max)
-                max = counter % 10;
+            if (counter % 10 > max) max = counter % 10;
             counter = counter / 10;
         } while (counter > 0);
         System.out.println(max);
-    }
-
-    {
-        Scanner console = new Scanner(System.in); // 1.5.2. Вероятность четных случайных чисел
-
     }
 }
 

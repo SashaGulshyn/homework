@@ -6,7 +6,7 @@ public class Point5 {
         System.out.println("У вас vacation? true or false?");
         Scanner sc = new Scanner(System.in);
         boolean vacation = sc.nextBoolean();
-        System.out.println("Какой день недели?");
+        System.out.println("Какой день недели от одного до семи?");
         int dayOfWeek = sc.nextInt();
         boolean week = false;
         if (dayOfWeek <= 5) {

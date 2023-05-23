@@ -1,13 +1,15 @@
 package src.home_work_1;
 
+import java.util.Random;
+
 public class Point4_1 {
     public static void main(String[] args) {
-        for (int i = 1; i <= 10; i++) {
-            if (i % 2 == 0) {
-                System.out.println(i + " - чётное число");
-            } else {
-                System.out.println(i + " - нечётное число");
-            }
+        Random randomizer = new Random();
+        int firstInt = randomizer.nextInt(15);
+        if (firstInt % 2 == 0) {
+            System.out.println(firstInt + " - чётное число");
+        } else {
+            System.out.println(firstInt + " - нечётное число");
         }
     }
 }
