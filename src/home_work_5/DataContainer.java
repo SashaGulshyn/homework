@@ -2,6 +2,10 @@ package src.home_work_5;
 
 import java.util.*;
 
+import src.home_work_5.IntegerDataComparator;
+import src.home_work_5.DataContainerMain;
+import static java.util.Collections.swap;
+
 public class DataContainer<T> {
 
     private T[] data;
@@ -12,6 +16,7 @@ public class DataContainer<T> {
 
     /**
      * Метод добавления данных
+     *
      * @param item элемент к добавлению
      * @return -1 = данный элемент нельзя вставлять/ return i - номер позиции, куда вставлен элемент / return overFlow
      * - в случае переполнения
@@ -32,6 +37,7 @@ public class DataContainer<T> {
 
     /**
      * Метод для создания нового массива (с переносом старого + 1) в случае переполнения
+     *
      * @param item данные к добавлению
      * @return возвращает номер позиции, в которую были положены данные
      */
@@ -46,6 +52,7 @@ public class DataContainer<T> {
 
     /**
      * Метод для получения предварительно сохранённого объекта, переданного через int add
+     *
      * @param index обращается к элементу массива
      * @return возвращает объект
      */
@@ -58,6 +65,7 @@ public class DataContainer<T> {
 
     /**
      * Метод возвращает массив из поля data
+     *
      * @return возвращает массив данных
      */
     public T[] getItems() {
@@ -66,6 +74,7 @@ public class DataContainer<T> {
 
     /**
      * Метод для удаления индекса элемента из поля data по индексу
+     *
      * @param index индекс элемента, который нужно удалить
      * @return false значение, если нет такого индекса / true - если получилось вызвать удаление + переложить данные
      */
@@ -82,6 +91,7 @@ public class DataContainer<T> {
 
     /**
      * Метод удаления элемента из поля data
+     *
      * @param item - элемент, который нужно удалить
      * @return delete - удаляет элемент, если таковой был найден в массиве. Return false - если элемент null
      * return true, если удаление успешно
@@ -91,7 +101,7 @@ public class DataContainer<T> {
             return false;
         }
         for (int i = 0; i < data.length; i++) {
-            if (Objects.equals(data[i],item)) {
+            if (Objects.equals(data[i], item)) {
                 List<Object> dataList = new ArrayList<>(Arrays.asList(data));
                 dataList.remove(i);
                 data = (T[]) dataList.toArray();
@@ -101,58 +111,43 @@ public class DataContainer<T> {
         return false;
     }
 
-//    @Override
-//    public String toString() {
-//        return "data=" + Arrays.toString(data);
-//    }
-
-    /*
-    public static void main(String[] args) {
-        Integer[] dataArr = new Integer[5];
-        dataArr[0] =1;
-        DataContainer<Integer> integerDataContainer;
-        integerDataContainer = new DataContainer<Integer>(dataArr);
-
-        DataContainer<Object> container2 = new DataContainer<>();
-        int index1 = container2.add("Привет");
-        int index2 = container2.add("Как дела");
-        int index3 = container2.add("Работаю");
-        int index4 = container2.add("Давай потом");
-        int index5 = container2.add(777);
-        String text1 = container.get(index1);
-        String text2 = container.get(index2);
-        String text3 = container.get(index3);
-        String text4 = container.get(index4);
-        System.out.println(text1);
-        System.out.println(text2);
-        System.out.println(text3);
-        System.out.println(text4);
-        container2.delete(text1);
-        System.out.println(container.get(index1));
+    /**
+     * Метод для переборки каждого значения массива начиная с конца. При сравнении элементов массива данные записываются
+     * в темповую переменную, чтобы после поменять элементы местами
+     *
+     * @param comparator вызывает компаратор, сравнивающий значения o1 и o2
+     */
+    public void sort(Comparator<T> comparator) {
+        for (int i = 0; i < data.length - 1; i++) {
+            for (int j = data.length - 1; j > i; j--) {
+//                if (data[j] == null) {
+//                    for (int k = 0; k < data.length; k++) {
+//                        data[j] = data[k];//                   }
+                if (comparator.compare(data[j - 1], data[j]) > 0) {
+                    T tmp = data[j - 1];
+                    data[j - 1] = data[j];
+                    data[j] = tmp;
+                }
+            }
+        }
     }
 
+    /**
+     * Метод переопределяющий toString, с приведением массива к String и перебором null'овых значений, которые не возвращаются
+     *
+     * @return отдаёт приведённый к String'у массив
      */
+    @Override
+    public String toString() {
+        T[] array = Arrays.copyOf(data, data.length);
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == null) {
+                for (int j = i; j < array.length - 1; j++) {
+                    array[j] = array[j + 1];
+                }
+                array = Arrays.copyOfRange(array, 0, array.length - 1);
+            }
+        }
+            return Arrays.toString(array);
+        }
 }
-
-
-//    public static void main(String[] args) {
-//        Integer [] array = new Integer[10];  // попробовать с нулевым значение для массива
-//        Scanner console = new Scanner(System.in);
-//        System.out.println("Введите целое число, которое будет следующим добавлено в массив");
-//        Integer nextInt = console.nextInt();
-//        System.out.println(methodIntAdd.add(array,nextInt));
-//    }
-//}
-
-
-//      }
-//        if data.lenght = max
-//      if (Arrays.asList(data).contains(null))
-//          Array.setInt(start,0,nextInt) ;
-//      for (int s : start)
-//        for (int i = 0; i <= data.length;) {
-//          int[] newData = new int[data.length + 1];
-//      }
-//      for (int i = 0; i < data.length; i++) {
-//          newData [i] = data[i];
-//      }
