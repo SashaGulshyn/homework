@@ -2,7 +2,7 @@ package src.home_work_6.tests;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import src.home_work_6.EasySearch;
+import src.home_work_6.*;
 
 public class ISearchEngineTest {
 
@@ -107,7 +107,7 @@ public class ISearchEngineTest {
     }
 
     @Test
-    public void differentLinesCheck(){         //проверка с переносом букв слова в другую строку
+    public void differentLinesCheck() {         //проверка с переносом букв слова в другую строку
         EasySearch search = new EasySearch();
         String text = "М\n и р\n";
         String word = "мир";
@@ -115,4 +115,71 @@ public class ISearchEngineTest {
         long actualCount = search.search(text, word);
         Assertions.assertEquals(expectedCount, actualCount);
     }
+
+    //Тесты для RegExSearch
+    @Test
+    public void positiveCheckForRegExSearch() {
+        RegExSearch searchReg = new RegExSearch();
+        String text = "The dog plays in the yard";
+        String word = "dog";
+        long expectedCount = 1;
+        long actualCount = searchReg.search(text, word);
+        Assertions.assertEquals(expectedCount, actualCount);
+    }
+
+    @Test
+    public void negativeCheckForRegExSearch() {
+        RegExSearch searchReg = new RegExSearch();
+        String text = "dog is on the backyard";
+        String word = "dog";
+        long expectedCount = 1;
+        long actualCount = searchReg.search(text, word);
+        Assertions.assertEquals(expectedCount, actualCount);
+    }
+
+    //Тесты для SearchEnginePunctuationNormalizer
+
+    @Test
+    public void positiveCheckPunctuationNormalizer() {
+        ISearchEngine mockSearchEngine = new MockSearchEngine();
+        ISearchEngine searchEngine = new SearchEnginePunctuationNormalizer(mockSearchEngine);
+        String text = "Проверим, как можно,, удалить знаки? пунктуации из     этого текста!";
+        String word = "Проверим как можно удалить знаки пунктуации из этого текста";
+        String expectedNormalizedText = "Проверим как можно удалить знаки пунктуации из этого текста";
+        long expectedSearchResult = 1;
+        long actualSearchResult = searchEngine.search(text, word);
+        Assertions.assertEquals(expectedNormalizedText, ((MockSearchEngine) mockSearchEngine).getLastSearchedText());
+        Assertions.assertEquals(expectedSearchResult, actualSearchResult);
+    }
+
+    private class MockSearchEngine implements ISearchEngine {
+        private String lastSearchedText;
+
+        public String getLastSearchedText() {
+            return lastSearchedText;
+        }
+
+        @Override
+        public long search(String text, String word) {
+            lastSearchedText = text;
+            return 1;
+        }
+    }
 }
+
+ //   @Test
+
+ //   public void positiveCheckForWithoutRegister(){
+ //       ICaseSensitiveSearch searchEngine = new WithoutRegister(new CaseSensitiveSearch());
+ //       String text = "Проверка на Кейс сенситив";
+ //       String keyword = "кейс";
+ //       boolean found = searchEngine.search(text, keyword);
+ //       Assertions.assertTrue(found);
+ //   }
+//
+ //   public static class CaseSensitiveSearch implements ICaseSensitiveSearch {
+ //       @Override
+ //       public boolean search(String text, String keyword) {
+ //           return text.contains(keyword);
+ //       }
+//}
