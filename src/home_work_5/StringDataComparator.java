@@ -1,6 +1,5 @@
 package src.home_work_5;
 
-import java.util.Arrays;
 import java.util.Comparator;
 
 public class StringDataComparator implements Comparator<String> {

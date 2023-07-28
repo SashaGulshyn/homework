@@ -2,10 +2,6 @@ package src.home_work_5;
 
 import java.util.*;
 
-import src.home_work_5.IntegerDataComparator;
-import src.home_work_5.DataContainerMain;
-import static java.util.Collections.swap;
-
 public class DataContainer<T> {
 
     private T[] data;
@@ -42,12 +38,18 @@ public class DataContainer<T> {
      * @return возвращает номер позиции, в которую были положены данные
      */
     public int overFlow(T item) {
-        T[] newArray = Arrays.copyOf(data, data.length + 1);
-        for (int i = 0; i < data.length; i++) {
-            newArray[i] = data[i];
+        if (data == null) {
+            data = (T[]) new Object[1];
+            data[0] = item;
+        } else {
+            T[] newData = (T[]) new Object[data.length + 1];
+            for (int i = 0; i < data.length; i++) {
+                newData[i] = data[i];
+            }
+            newData[data.length] = item;
+            data = newData;
         }
-        data = newArray;
-        return newArray.length;
+        return data.length;
     }
 
     /**
@@ -82,10 +84,22 @@ public class DataContainer<T> {
         if (!(index >= 0)) {
             return false;
         }
-        for (int i = index; i < data.length - 1; i++) {
-            data[i] = data[i + 1];
+        if (index >= data.length) {
+            return false;
         }
-        data = Arrays.copyOfRange(data, 0, data.length - 1);
+        if (data.length == 1) {
+            data = null;
+            return true;
+        }
+        T[] newData = (T[]) new Object[data.length - 1];
+        int j = 0;
+        for (int i = 0; i < data.length; i++) {
+            if (i != index) {
+                newData[j] = data[i];
+                j++;
+            }
+        }
+        data = newData;
         return true;
     }
 
@@ -100,36 +114,67 @@ public class DataContainer<T> {
         if (item == null) {
             return false;
         }
+        int index = -1;
         for (int i = 0; i < data.length; i++) {
             if (Objects.equals(data[i], item)) {
-                List<Object> dataList = new ArrayList<>(Arrays.asList(data));
-                dataList.remove(i);
-                data = (T[]) dataList.toArray();
-                return true;
+                index = i;
+                break;
             }
         }
-        return false;
+        if (index == -1) {
+            return false;
+        }
+        T[] newData = (T[]) new Object[data.length - 1];
+        int j = 0;
+        for (int i = 0; i < data.length; i++) {
+            if (i != index) {
+                newData[j] = data[i];
+                j++;
+            }
+        }
+        data = newData;
+        return true;
     }
 
     /**
-     * Метод для переборки каждого значения массива начиная с конца. При сравнении элементов массива данные записываются
-     * в темповую переменную, чтобы после поменять элементы местами
-     *
-     * @param comparator вызывает компаратор, сравнивающий значения o1 и o2
+     * Сортировка по длине для String
      */
-    public void sort(Comparator<T> comparator) {
-        for (int i = 0; i < data.length - 1; i++) {
-            for (int j = data.length - 1; j > i; j--) {
-//                if (data[j] == null) {
-//                    for (int k = 0; k < data.length; k++) {
-//                        data[j] = data[k];//                   }
-                if (comparator.compare(data[j - 1], data[j]) > 0) {
-                    T tmp = data[j - 1];
-                    data[j - 1] = data[j];
-                    data[j] = tmp;
+    public void sort(Comparator comparator) {
+        T[] arr = this.data;
+        int length = arr.length;
+
+        for (int i = 0; i < length - 1; i++) {
+            for (int j = 0; j < length - i - 1; j++) {
+                if (comparator.compare(arr[j], arr[j + 1]) > 0) {
+                    T temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
                 }
             }
         }
+
+        this.data = arr;
+    }
+
+    /**
+     * Сортировка по алфавиту
+     */
+
+    public void sortAlphabet(Comparator comparator) {
+        String[] arr = (String[]) this.data;
+        int length = arr.length;
+
+        for (int i = 0; i < length - 1; i++) {
+            for (int j = 0; j < length - i - 1; j++) {
+                if (arr[j].compareTo(arr[j + 1]) > 0) {
+                    String temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+
+        this.data = (T[]) arr;
     }
 
     /**
@@ -148,6 +193,6 @@ public class DataContainer<T> {
                 array = Arrays.copyOfRange(array, 0, array.length - 1);
             }
         }
-            return Arrays.toString(array);
-        }
+        return Arrays.toString(array);
+    }
 }

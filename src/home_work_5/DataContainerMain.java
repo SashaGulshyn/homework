@@ -1,8 +1,5 @@
 package src.home_work_5;
 
-import src.home_work_5.DataContainer;
-import src.home_work_5.IntegerDataComparator;
-import src.home_work_5.StringDataComparator;
 
 import java.util.Arrays;
 
@@ -12,7 +9,7 @@ public class DataContainerMain {
         DataContainer<Integer> integerDataContainer;
         integerDataContainer = new DataContainer<Integer>(dataArr);
 
-        String[] stringArr = new String[5];
+        String[] stringArr = new String[4];
         DataContainer<String> stringDataContainer;
         stringDataContainer = new DataContainer<String>(stringArr);
 
@@ -34,16 +31,10 @@ public class DataContainerMain {
         integerDataContainer.delete(index5);
         System.out.println(stringDataContainer.get(index1));
 
-        /**
-         * я так и не понял, каким образом можно привести массив свободный от null'ов к .sort. Метод сортировки работает
-         * с data массивом, в котором эти самые null всё ещё есть, а как вызвать не системный Arrays.toString, а мой
-         * toString метод из override непонятно. Видимо как-то нужно было делать через super...
-         */
+      stringDataContainer.sort(new StringDataComparator()); //Сортируется по длине
+        System.out.println(stringDataContainer);
 
-//      stringArr = new String[]{stringDataContainer.toString()};
-//      stringDataContainer.sort(new StringDataComparator()); //Сортируется по длине
-//      System.out.println(Arrays.toString(stringArr)); // ["Привет", "Работаю", "Как дела", "Давай потом"]
-//      stringDataContainer.sort(new StringDataComparator()); //Сортируется по алфавиту
-//      System.out.println(Arrays.toString(stringArr)); // ["Давай потом", "Как дела", "Привет", "Работаю"]
+      stringDataContainer.sortAlphabet(new StringDataComparator()); //Сортируется по алфавиту
+      System.out.println(stringDataContainer); // ["Давай потом", "Как дела", "Привет", "Работаю"]
     }
 }
